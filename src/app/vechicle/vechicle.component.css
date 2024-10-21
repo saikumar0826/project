@@ -9,7 +9,7 @@ table {
 
 /* Table header styling */
 thead {
-    background-color: #4CAF50; /* Dark green background for header */
+    background-color: red; /* Dark green background for header */
     color: white;
 }
 
