@@ -1,0 +1,120 @@
+<form [formGroup]="userForm">
+
+    <label for="">Name:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['required']">name is requried</p>
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['minlength']">minimum 3 chars</p>
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['maxlength']">maximum 10 chars</p>
+
+    </div>
+    <br>
+
+    <label for="">Age:</label>
+    <input type="number" formControlName="age">
+    <div *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid">
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['required']">age is requried</p>
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['minlength']">minimum 18 chars</p>
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['maxlength']">maximum 60 chars</p>
+
+    </div>
+    <br>
+
+  
+    <label for="">Email:</label>
+    <input type="text" formControlName="email">
+    <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+        <p class="error" *ngIf="userForm.get('email')?.errors?.['required']">email is requried</p>
+        <p class="error" *ngIf="userForm.get('email')?.errors?.['minlength']">invalid email format</p>
+        
+
+    </div>
+    <br>
+
+    <label for="">Password:</label>
+    <input type="text" formControlName = "password">
+    <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid">
+        <p class="error" *ngIf="userForm.get('password')?.errors?.['required']">password is required</p>
+        <p class="error" *ngIf="userForm.get('password')?.errors?.['pattern']">password shiold contain 1U,1l,1s,1n,1sc.</p>
+
+
+    </div>
+
+    <div formGroupName="address">
+        <label for="">city:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="userForm.get('adress')?.get('city')?.touched && userForm.get('adress')?.get('city')?.invalid">
+            <p class="error" *ngIf="userForm.get('adress')?.get('city')?.errors?.['required']">email is requried</p>
+        
+            
+    
+        </div>
+        <br>
+
+        <label for="">Pin:</label>
+        <input type="text" formControlName="pin">
+        <br>
+
+
+    </div>
+ 
+    <label for="">Type:</label>
+    <label for="">DayScholor:</label>
+    <input type="radio" name="type" formControlName="type" value="DayScholor">
+    <label for="">Residential:</label>
+    <input type="radio" name="type" formControlName="type" value="Residential">
+
+    <div *ngIf="userForm.get('type')?.value=='DayScholor'">
+        <label for="">Bus Fee:</label>
+        <input type="text" formControlName = "busfee">
+        <br>
+    </div>
+
+
+    <div *ngIf="userForm.get('type')?.value=='Residential'">
+
+        <label for="">Hostel Fee:</label>
+        <input type="text" formControlName="hostelfee">
+        <br>
+    </div>
+
+    <label for="">Cards:</label>
+    <button (click)="addcard()">add Cards</button>
+    <br><br><br>
+
+
+
+    <div formArrayName="cards">
+        <div *ngFor="let card of cardsFormArray.controls;let i =index">
+            <div formGroupName="{{i}}">
+
+                <h2>card {{i+1}}</h2>
+
+
+                <label for="">Number:</label>
+                <input type="text" formControlName="number">
+                <div *ngIf="cardsFormArray.controls[i]?.get('number')?.touched && cardsFormArray.controls[i]?.get('number')?.invalid">
+                    <p class="error" *ngIf="cardsFormArray.controls[i]?.get('number')?.errors?.['required']">card number is invalid</p>
+
+                </div>
+                <br>
+                <label for="">Expiry:</label>
+                <input type="month" formControlName="expiry">
+                <br>
+                <label >CVV:</label>
+                <input type="number" formControlName="cvv">
+                <br>
+
+
+                <button (click)="delete(i)">delete</button>
+
+            </div>
+        </div>
+    </div>
+
+    <button (click)="submit()">submit</button>
+    <br><br>
+
+    <button [disabled]="userForm.invalid">submit2</button>
+
+</form>

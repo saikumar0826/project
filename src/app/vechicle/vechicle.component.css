@@ -1,0 +1,52 @@
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Table header styling */
+thead {
+    background-color: #4CAF50; /* Dark green background for header */
+    color: white;
+}
+
+/* Table header cells */
+thead td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table body row styling */
+tbody tr {
+    border-bottom: 1px solid #ddd; /* Light gray border between rows */
+}
+
+/* Alternating row colors for better readability */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+/* Table body cells */
+tbody td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Image styling */
+td img {
+    max-width: 100px; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Cost styling */
+td:nth-child(8) {
+    font-weight: bold; /* Bold text for cost */
+    color: #4CAF50; /* Same green color as the header */
+}

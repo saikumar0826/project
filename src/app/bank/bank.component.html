@@ -1,0 +1,24 @@
+
+<h1>Information</h1>
+<table>
+    <thead>
+        <td>account_name</td>
+        <td>available_balance</td>
+        <td>accrount_numbe</td>
+        <td>city</td>
+        <td>profie_picture</td>
+        <td>id</td>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let information of bank">
+            <td>{{information.account_name}}</td>
+            <td>{{information.available_balance}}</td>
+            <td>{{information.account_number}}</td>
+            <td>{{information.city}}</td>
+            <td>{{information.profie_picture}}</td>
+            <td>{{information.id}}</td>
+        </tr>
+            
+    </tbody>
+</table>

@@ -1,0 +1,72 @@
+<button (click)="pricelow()">Price low to high</button>
+
+<button (click)="pricehigh()">Price high to low</button>
+<br><br>
+
+<button (click)="discount()">Apply 50% discount</button>
+<button (click)="totalprice()">Totl cart price</button>
+<br><br>
+<select [(ngModel)] ="category" (change)="categorychange()">
+
+    <option >gadgets</option>
+    <option >footware</option>
+    <option >fashion </option>
+    <option >accessories</option>
+
+</select>
+
+<input type="text" placeholder="search"[(ngModel)]="term" (keyup)="search()">
+<p> Total cart iteams:<mark>{{products.length}} </mark></p>
+
+
+<label for="">Name</label>
+<input type="text"[(ngModel)]="productname">
+<br><br>
+<label for="">Price</label>
+<input type="number"[(ngModel)]="price">
+<br><br>
+<label for="">Rating</label>
+<input type="number" [(ngModel)]="rating">
+<br><br>
+<label for="">Delivery Date:</label>
+<input type="date" [(ngModel)]="deliverydate">
+<br><br>
+<label for="">Free Delivery:</label>
+<label for="">Yes</label>
+<input type="radio" name="fd" value="true"[(ngModel)]="freedelivery">
+<label for="">No</label>
+<input type="radio" name="fd" value="false"[(ngModel)]="freedelivery">
+
+<button (click)="submit()">Submit</button>
+<br><br>
+ <h1>List of Products</h1>
+
+ <table>
+    <thead>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>DeliveryDate</th>
+        <th>FreeDelivery</th>
+        <th>Rating</th>
+       <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products1; let i= index">
+            <td>{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.deliverydate || 'yyyy-mmm-dd'}}</td>
+            <td>{{product.freedelivery? 'yes':'no'}}</td>
+            <td>{{product.rating}}</td>
+            <td>
+                <button (click)="delete(i)">Delete</button>
+            </td>
+
+        </tr>
+
+    </tbody>
+ </table>
+
+
+

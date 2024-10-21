@@ -1,0 +1,43 @@
+<button (click)="add20()">add 20 dilivery charges</button>
+<button (click)="discount()">50% discount</button>
+<br><br>
+
+<button (click)="pricelh()">price low to high</button>
+<button (click)="pricehl()">price high to low</button>
+<br><br>
+<button (click)="totalprice()">Total car price</button>
+
+<br><br>
+
+<p> Total cart iteams:<mark>{{products.length}} </mark></p>
+
+<select [(ngModel)] ="category" (change)="categorychange()">
+
+    <option >gadgets</option>
+    <option >footware</option>
+    <option >fashion </option>
+    <option >accessories</option>
+
+</select>
+
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="search()">
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+        </tr>
+    </tbody>
+
+</table>

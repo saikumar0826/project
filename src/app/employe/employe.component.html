@@ -1,0 +1,25 @@
+
+<div class="container">
+    <h1>Employee Management</h1>
+
+    <div class="search">
+        <input type="text" [(ngModel)]="searchName" placeholder="Search by name" />
+    </div>
+
+    <div class="buttons">
+        <button (click)="hike20()">20% Hike</button>
+        <button (click)="festivalBonus()">Festival Bonus</button>
+        <button (click)="calculateExpenditure()">Expenditure for Company</button>
+        <button (click)="totalEmployees()">Total Employees</button>
+    </div>
+
+    <div class="employee-cards">
+        <div *ngFor="let employee of filteredEmployees()" class="card">
+            <h3>{{ employee.name }}</h3>
+            <p>Experience: {{ employee.experience }} years</p>
+            <p>Package: {{ employee.package | currency }}</p>
+            <p>Role: {{ employee.role }}</p>
+            <button (click)="deleteEmployee(employee)">Delete</button>
+        </div>
+    </div>
+</div>

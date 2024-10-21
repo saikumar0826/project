@@ -1,0 +1,45 @@
+<p>task works!</p>
+<h1>Event Registration</h1>
+<label for="">Name</label>
+<input type="text" [(ngModel)]="name">
+<button (click)="submit()">submit</button>
+
+<h1>Registred Users</h1>
+
+<ol>
+    <li *ngFor="let name of names">{{name}}</li>
+</ol>
+
+<button (click)="delete()">delete</button>
+
+<hr><hr>
+
+<h1>Student Registration</h1>
+<label for="">Name:</label>
+<input type="text" [(ngModel)] ="studentName">
+<label for="">Age:</label>
+<input type="number" [(ngModel)] = "studentAge">
+
+<br>
+<br>
+
+
+<button (click)="create()">Create</button>
+<br><br>
+  
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+        </tr>
+    </tbody>
+</table>
