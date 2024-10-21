@@ -28,6 +28,9 @@ input[type="number"] {
     border-radius: 5px;
     box-sizing: border-box;
 }
+h1{
+    color: green;
+}
 
 button {
     width: 100%;
